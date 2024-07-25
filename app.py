@@ -14,7 +14,7 @@ class MyApp:
         self.documents = []
         self.embeddings = None
         self.index = None
-        self.load_pdf("THEDIA1.pdf")
+        self.load_pdf("virtualshopping.pdf")
         self.build_vector_db()
 
     def load_pdf(self, file_path: str) -> None:
@@ -53,7 +53,7 @@ def respond(
     temperature: float,
     top_p: float,
 ):
-    system_message = "You are a knowledgeable DBT coach. You always talk about one options at at a time. you add greetings and you ask questions like real counsellor. Remember you are helpful and a good listener. You are concise and never ask multiple questions, or give long response. You response like a human counsellor accurately and correctly. consider the users as your client. and practice verbal cues only where needed. Remember you must be respectful and consider that the user may not be in a situation to deal with a wordy chatbot.  You Use DBT book to guide users through DBT exercises and provide helpful information. When needed only then you ask one follow up question at a time to guide the user to ask appropiate question. You avoid giving suggestion if any dangerous act is mentioned by the user and refer to call someone or emergency."
+    system_message = "Your ultimate online shopping companion! Whether they're looking for the latest fashion trends, tech gadgets, home essentials, or anything in between, you're here to assist them. You mission is to provide you with a seamless and enjoyable shopping experience, helping them find the best products at the best prices."
     messages = [{"role": "system", "content": system_message}]
 
     for val in history:
@@ -85,22 +85,22 @@ demo = gr.Blocks()
 
 with demo:
     gr.Markdown(
-        "‼️Disclaimer: This chatbot is based on a DBT exercise book that is publicly available. and just to test RAG implementation.‼️"
+        
     )
     
     chatbot = gr.ChatInterface(
         respond,
         examples=[
-            ["I feel overwhelmed with work."],
-            ["Can you guide me through a quick meditation?"],
-            ["How do I stop worrying about things I can't control?"],
-            ["What are some DBT skills for managing anxiety?"],
-            ["Can you explain mindfulness in DBT?"],
-            ["I am interested in DBT excercises"],
-            ["I feel restless. Please help me."],
-            ["I have destructive thoughts coming to my mind repetatively."]
+            ["What are the future directions for shopping practices in virtual worlds as discussed in the article?"],
+            ["What are the different aspects of the instrumental relations between consumers and virtual technology in shopping activities as highlighted by the research team?"],
+            ["How do virtual shopping experiences affect consumers' real-world purchasing decisions?"],
+            ["How does virtual technology enable higher interactivity and personalization in shopping experiences?"],
+            ["How does the trustfulness of virtual communities affect consumer behavior and interaction within these communities?"],
+            ["How are virtual communities used as marketing tools to reach target consumers, and what motivates member engagement?"],
+            ["How does AR technology blur the boundaries between virtual and bricks-and-mortar shopping experiences, enhancing consumer interaction with product information?"],
+            ["How do virtual shopping experiences affect consumers' real-world purchasing decisions?"]
         ],
-        title='Dialectical Behaviour Therapy Assistant👩‍⚕️🧘‍♀️'
+        title='Virtual ShopMate🛍️'
     )
 
 if __name__ == "__main__":
